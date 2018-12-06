@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.utils import timezone
 from .models import URL
@@ -10,10 +10,7 @@ def index(request):
 	return render(request, 'scrape/index.html', context)
 
 def detail(request, url_id):
-	try:
-		url_link = URL.objects.get(pk = url_id)
-	except URL.DoesNotExist:
-		raise Http404("URL not scrapped.")
+	url_link = get_object_or_404(URL, pk=url_id)
 	return render(request, 'scrape/detail.html', {'url_link': url_link})
 	
 def add_urls(request):
@@ -21,6 +18,6 @@ def add_urls(request):
 		hyperlink = request.POST.get('textfield', None)
 		new_url = URL(url=hyperlink, get_date=timezone.now())
 		new_url.save()
-		return HttpResponseRedirect('scrape/index.html')
+		return HttpResponseRedirect('scrape/{0}/'.format(new_url.id))
 	else:
 		return render(request, 'scrape/add_urls.html')
