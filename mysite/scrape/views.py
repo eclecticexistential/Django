@@ -18,7 +18,6 @@ def add_urls(request):
 		hyperlink = request.POST.get('textfield', None)
 		new_url = URL(url=hyperlink, get_date=timezone.now())
 		new_url.save()
-		redir = 'scrape/{0}/'.format(new_url.id)
-		return HttpResponseRedirect(redir)
+		return HttpResponseRedirect('scrape/detail.html', {'url_link':new_url.id})
 	else:
 		return render(request, 'scrape/add_urls.html')
