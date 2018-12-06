@@ -27,6 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
 	'scrapableornaw.herokuapp.com',
+	'localhost'
 ]
 
 
