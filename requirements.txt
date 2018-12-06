@@ -85,7 +85,6 @@ PyHamcrest==1.9.0
 PyInstaller==3.3.1
 pyOpenSSL==18.0.0
 pyparsing==2.2.0
-pypiwin32==220
 PySimpleGUI==3.16.0
 pytest==3.3.1
 python-dateutil==1.5
