@@ -26,8 +26,7 @@ SECRET_KEY = 'u#g4seu$kj8=1es$b=pd7b+28o0w9j-pdq$$pi-i4(g^f*$!%5'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-	'scrapableornaw.herokuapp.com',
-	'localhost'
+	'scrapableornaw.herokuapp.com'
 ]
 
 
