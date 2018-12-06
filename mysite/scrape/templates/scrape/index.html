@@ -1,0 +1,9 @@
+{% if url_list %}
+	<ul>
+	{% for url in url_list %}
+		<li><a href="/scrape/{{ url.id }}/"> {{ url.url }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No scrapes are available.</p>
+{% endif %}
