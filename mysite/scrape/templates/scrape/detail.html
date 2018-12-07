@@ -1,1 +1,25 @@
-{{ url_link.get_data }}
+<!DOCTYPE html>
+<head>
+<title>Scrape Results</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#DDD'>
+	<div class='container text-center'>
+		<div class='row'>
+			<div class='col-lg-12 col-xs-4'>
+			<h1 class='my-2'> Requested Content From</h1>
+			<h5 class='my-3'><a href='{{ url_link.url }}' >{{ url_link.url }}</a></h5>
+			{% if url_link %}
+				<ul style='list-style:none'>
+				{% for data in url_link.get_data %}
+					<li class='my-1 p-1' style='background-color:#EEE'>{{ data }}</li>
+				{% endfor %}
+				</ul>
+			{% else %}
+				<p>Not Scrapable or Tag Does Not Exist.</p>
+			{% endif %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

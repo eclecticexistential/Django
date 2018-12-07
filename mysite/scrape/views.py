@@ -16,7 +16,8 @@ def detail(request, url_id):
 def add_urls(request):
 	if request.method == 'POST':
 		hyperlink = request.POST.get('textfield', None)
-		new_url = URL(url=hyperlink, get_date=timezone.now())
+		tag_name = request.POST.get('tagName', None)
+		new_url = URL(url=hyperlink, tag=tag_name, get_date=timezone.now())
 		new_url.save()
 		return HttpResponseRedirect('/scrape/{0}'.format(new_url.id))
 	else:

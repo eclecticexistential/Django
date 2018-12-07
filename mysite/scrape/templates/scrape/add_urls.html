@@ -1,7 +1,22 @@
-<h1>Insert URL Below</h1>
-<form method="POST" action="/scrape/add/">
-{% csrf_token %}
-<input type="text" name="textfield">
-
-<button type="submit">Upload Link</button>
-</form>
+<!DOCTYPE html>
+<head>
+<title>Add URL to Scrape</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#EDA'>
+	<div class='container text-center'>
+		<div class='row'>
+			<div class='col my-3 p-3'>
+				<h1 class='my-3'>Insert URL and TagName</h1>
+				<form method="POST" action="/scrape/add/" class='my-3 py-4'>
+				{% csrf_token %}
+				<input class='m-2' type="text" name="textfield" placeholder="Add URL">
+				<input class='m-2' type="text" name="tagName" placeholder="Examples: div, href, table" value='div'>
+				<br>
+				<button class='my-5 btn btn-primary' type="submit">Upload Link</button>
+				</form>
+				<a href="/scrape"><button class='my-5 btn btn-danger'>Go Back</button></a>
+			</div>
+		</div>
+	</div>
+</body>

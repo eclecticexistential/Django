@@ -1,13 +1,27 @@
-<div>
-<h1>Recent Scrapes</h1>
-<a href="/scrape/add"><button>Add Link</button></a>
-{% if url_list %}
-	<ul>
-	{% for url in url_list %}
-		<li><a href="/scrape/{{ url.id }}/"> {{ url.url }}</a></li>
-	{% endfor %}
-	</ul>
-{% else %}
-	<p>No scrapes are available.</p>
-{% endif %}
-</div>
+<!DOCTYPE html>
+<head>
+<title>Recent Scrapes</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#EDA'>
+	<div class='container text-center'>
+		<div class='row'>
+			<div class='col-md-6 col-xs-7'>
+			<h1 class='my-4 ml-4'>Recent Scrapes</h1>
+			{% if url_list %}
+				<ul style='list-style:none' class='my-5'>
+				{% for url in url_list %}
+					<li class='my-2 py-2' style='background-color:#FFF'><a href="/scrape/{{ url.id }}/"> {{ url.url }}</a><br>Tag: {{ url.tag }}</li>
+				{% endfor %}
+				</ul>
+			{% else %}
+				<p>No scrapes are available.</p>
+			{% endif %}
+			</div>
+			<div class='col-md-6 col-xs-5 my-5'>
+				<a href="/scrape/add"><button class='btn btn-primary my-4' style='padding:1.5em;font-size:1.25em'>Add Link</button></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

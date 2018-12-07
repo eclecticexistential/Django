@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
-def page(hyper):
+def page(hyper, tag=None):
 	req_headers = {
 			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
 			'accept-encoding': 'gzip, deflate, br',
@@ -13,13 +13,28 @@ def page(hyper):
 		}
 	source = requests.get(hyper,headers=req_headers).text
 	soup = BeautifulSoup(source, 'lxml')
-	return soup
+	table = soup.find_all(tag)
+	if len(table) > 1:
+		array = []
+		for item in table:
+			if tag == 'a':
+				array.append(item['href'])
+			if tag != 'a':
+				array.append(item.text)
+		return array
+	if len(table) == 1:
+		return table
 
 class URL(models.Model):
+	tag = models.CharField(max_length=7, default='div')
 	url = models.URLField(max_length=200)
 	get_date = models.DateTimeField('date scrapped')
 	def __str__(self):
 		return self.url
 		
 	def get_data(self):
-		return page(self.url)
+		return page(self.url, self.tag)
+		
+		
+		
+		
