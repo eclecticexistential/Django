@@ -19,9 +19,9 @@ def home(request):
 			<div class='container'>
 				<div class='row'>
 					<div class='col text-center'>
-					<h1 class='my-4'>Uh oh, look out!</h1>
-					<img class='my-2' style='border:1px solid black' src='https://tromoticons.files.wordpress.com/2012/12/neil.jpg' alt='Neil deGrasse Tyson'/>
-					<h2 class="my-4" >We have a Landing Page here!</h2>
+					<h1 class='my-4'>Uh oh, Look Out!</h1>
+					<img class='my-2 image-responsive' style='border:1px solid black; height:24em' src='http://3.bp.blogspot.com/-jPuKVgHNiFk/UCrfPQ6eLZI/AAAAAAAABq0/vxUlNk3yf6E/s1600/Janelle.jpg' alt='Neil deGrasse Tyson'/>
+					<h2 class="my-4" >There's a Landing Page Loaded Here!</h2>
 					<a href="/scrape"><button class='btn btn-primary mx-3'>Scraper</button></a>
 					<a href="/polls"><button class='btn btn-secondary'>Vote</button></a>
 					</div>
