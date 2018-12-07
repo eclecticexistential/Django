@@ -23,10 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u#g4seu$kj8=1es$b=pd7b+28o0w9j-pdq$$pi-i4(g^f*$!%5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-	'scrapableornaw.herokuapp.com'
+	'scrapableornaw.herokuapp.com',
+	'localhost'
 ]
 
 
