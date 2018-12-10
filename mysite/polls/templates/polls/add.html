@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+<title>Poll Results</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#DDD'>
+	<div class='container text-center'>
+		<div class='row'>
+			<div class='col-lg-12 col-xs-4'>
+				<h1 class='my-5'>Ask Away!</h1>
+				<form method="POST" action="/polls/add" class='my-3 py-4'>
+				{% csrf_token %}
+				<textarea class='m-2' type="textarea" name="question" placeholder="?"></textarea>
+				<br>
+				<input class='m-2' type="text" name="one" placeholder="Choice 1">
+				<input class='m-2' type="text" name="two" placeholder="Choice 2">
+				<input class='m-2' type="text" name="three" placeholder="Choice 3">
+				<input class='m-2' type="text" name="four" placeholder="Choice 4">
+				<br>
+				<button class='my-5 btn btn-primary' type="submit">Submit</button>
+				</form>
+				<a href="/polls"><button class='my-5 btn btn-danger'>Go Back</button></a>
+			</div>
+		</div>
+	</div>

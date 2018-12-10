@@ -1,8 +1,20 @@
-<h1>{{ question.question_text }}</h1>
-<ul>
-{% for choice in question.choice_set.all %}
-	<li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+<!DOCTYPE html>
+<head>
+<title>Poll Results</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#DDD'>
+	<div class='container text-center'>
+		<div class='row'>
+			<div class='col-lg-12 col-xs-4'>
+			<h1 class='my-5'>{{ question.question_text }}</h1>
+			<ul class='p-3' style='list-style:none; background-color:aliceblue'>
+			{% for choice in question.choice_set.all %}
+				<li class='my-2'>{{ choice.choice_text }} --- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+			{% endfor %}
+			</ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote Again?</a>
+			<a href="{% url 'polls:detail' question.id %}"><button class='btn btn-primary'>Vote Again?</button></a>
+			</div>
+		</div>
+	</div>

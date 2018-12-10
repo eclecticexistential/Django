@@ -1,10 +1,23 @@
-<h1>Latest Questions to Vote on</h1>
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<head>
+<title>Poll Results</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#DDD'>
+	<div class='container text-center'>
+		<div class='row'>
+			<div class='col-lg-12 col-xs-4'>
+				<h1 class='my-5'>Latest Questions to Vote on</h1>
+				{% if latest_question_list %}
+					<ul>
+					{% for question in latest_question_list %}
+						<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+					{% endfor %}
+					</ul>
+				{% else %}
+					<p>No polls are available.</p>
+				{% endif %}
+				<a href="add"><button class='my-5 btn btn-success'>Add Question</button></a>
+			</div>
+		</div>
+	</div>

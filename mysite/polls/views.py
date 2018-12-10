@@ -33,3 +33,28 @@ def vote(request, question_id):
 		selected_choice.save()
 		#always do so no double post
 		return HttpResponseRedirect(reverse('polls:results',args=(question.id,)))
+	
+def add(request):
+	if request.method == 'POST':
+		question = request.POST.get('question',None)
+		one = request.POST.get('one',None)
+		two = request.POST.get('two',None)
+		three = request.POST.get('three',None)
+		four = request.POST.get('four',None)
+		add_Quest = Question(question_text=question, pub_date=timezone.now())
+		add_Quest.save()
+		if one:
+			add_Quest.choice_set.create(choice_text=one, votes=0)
+		if two:
+			add_Quest.choice_set.create(choice_text=two, votes=0)
+		if three:
+			add_Quest.choice_set.create(choice_text=three, votes=0)
+		if four:
+			add_Quest.choice_set.create(choice_text=four, votes=0)
+		if add_Quest.choice_set.count() == 0:
+			add_Quest.choice_set.create(choice_text="Yes", votes=0)
+			add_Quest.choice_set.create(choice_text="Maybe", votes=0)
+			add_Quest.choice_set.create(choice_text="No.", votes=0)
+		return HttpResponseRedirect(reverse('polls:detail',args=(add_Quest.id,)))
+	else:
+		return render(request, 'polls/add.html')
