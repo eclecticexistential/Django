@@ -11,7 +11,7 @@
 			{% if url_list %}
 				<ul style='list-style:none' class='my-5'>
 				{% for url in url_list %}
-					<li class='my-2 py-2' style='background-color:#FFF'><a href="/scrape/{{ url.id }}/"> {{ url.url }}</a><br>Tag: {{ url.tag }}</li>
+					<li class='my-2 py-2' style='background-color:#FFF'><a href="/scrape/{{ url.id }}/"> {{ url.url }}</a><br>Tag Captured: {{ url.main_tag }}</li>
 				{% endfor %}
 				</ul>
 			{% else %}

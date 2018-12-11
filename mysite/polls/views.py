@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+import bleach
 
 class IndexView(generic.ListView):
 	template_name = 'polls/index.html'
@@ -36,7 +37,8 @@ def vote(request, question_id):
 	
 def add(request):
 	if request.method == 'POST':
-		question = request.POST.get('question',None)
+		sentence = request.POST.get('question',None)
+		question = bleach.clean(sentence)
 		one = request.POST.get('one',None)
 		two = request.POST.get('two',None)
 		three = request.POST.get('three',None)

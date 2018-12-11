@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
 	'scrape.apps.ScrapeConfig',
 	'polls.apps.PollsConfig',
+	'django_cleanup.apps.CleanupConfig', #auto remove file/image upon delete
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

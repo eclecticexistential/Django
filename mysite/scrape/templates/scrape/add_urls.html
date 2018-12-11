@@ -10,9 +10,13 @@
 				<h1 class='my-3'>Insert URL and TagName</h1>
 				<form method="POST" action="/scrape/add/" class='my-3 py-4'>
 				{% csrf_token %}
-				<input class='m-2' type="text" name="textfield" placeholder="Add URL">
-				<input class='m-2' type="text" name="tagName" placeholder="Examples: div, href, table" value='div'>
+				<input class='m-2' type="text" name="textfield" placeholder="Add URL" required>
 				<br>
+				<input class='m-2' type="text" name="tagName" placeholder="Examples: div, href, table" value='div'>
+				<input class='m-2' type="text" name="class_name" placeholder="Class?">
+				<input class='m-2' type="text" name="id_name" placeholder="Id?">
+				<br>
+				<input class='m-2' type="text" name="subName" placeholder="Inner tag?">
 				<button class='my-5 btn btn-primary' type="submit">Upload Link</button>
 				</form>
 				<a href="/scrape"><button class='my-5 btn btn-danger'>Go Back</button></a>
