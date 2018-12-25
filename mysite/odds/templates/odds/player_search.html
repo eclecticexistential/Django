@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+<title>Player Match Ups</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#EDA'>
+	<div class='container text-center'>
+			<h1 class='mt-5'>Select Two Players</h1>
+			<p class='mb-4'>Stats Provided By <a href='https://liquipedia.net/fighters/Tokido/Results'>Liquipedia</a></p>
+			<br>
+			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+			<form method="POST" action="/odds/playersearch/">
+			{% csrf_token %}
+			<input class='m-2' type="text" name="player" placeholder="Player">
+			<input class='m-2' type="text" name="opp" placeholder="Opponent">
+			<button class='my-5 btn btn-primary' type="submit">View Matches</button>
+			</form>
+			<a href="/odds"><button class='my-5 btn btn-danger'>Go Home</button></a>
+	</div>
+</body>
+</html>

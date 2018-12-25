@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+<title>Top 32 Face-Offs</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style='background-color:#EDA'>
+	<div class='container text-center'>
+			<h1 class='mt-5'>Requested Data for {{ player }} vs {{ opp }}</h1>
+			<p class='mb-4'>Stats Provided By <a href='https://liquipedia.net/fighters/'>Liquipedia</a></p>
+			<br>
+			<table class='col-12 text-center'>
+			<thead class="my-2">
+				<th>Date</th>
+				<th>Wins & Losses</th>
+				<th>Placement</th>
+				<th>Event</th>
+			</thead>
+			{% if matches %}
+				{% for stats in matches %}
+					<tr class='py-2' style='background-color:#EEE'>
+					{% for info in stats %}
+						<td class='px-4'>{{ info }}</td>
+					{% endfor %}
+					</tr>
+				{% endfor %}
+			{% else %}
+				<p>No stats are available.</p>
+			{% endif %}
+			</table>
+			<br>
+			{% if games %}
+				<h5 class='my-5' >Out of {{ games }} Game{{ games|pluralize:",s"}} {{ player }} won {{ won }} time{{ won|pluralize:",s"}}.</h5>
+			{% else %}
+				<p>Double Check Spelling.</p>
+			{% endif %}
+			<a href="/odds/playersearch"><button class='btn btn-primary my-4' style='padding:1.5em;font-size:1.25em'>Compare Players</button></a>
+	</div>
+</body>
+</html>
